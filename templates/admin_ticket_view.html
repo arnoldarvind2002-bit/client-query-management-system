@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket View — QueryNest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_ticket_view.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">QN</div>
+        <div>
+          <h1>QueryNest</h1>
+          <p class="small">Ticket Admin View</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main panel" style="margin-top:20px">
+      <div class="grid">
+        <div>
+          <h3>Ticket Details — <span id="ticketId">Loading...</span></h3>
+          <div class="messages" id="messages">
+            <div class="msg agent">Loading ticket...</div>
+          </div>
+
+          <div class="reply-box">
+            <input id="replyTxt" placeholder="Write a reply..." />
+            <button id="replyBtn">Reply</button>
+          </div>
+        </div>
+
+        <aside class="ticket-meta">
+          <div class="meta-row">
+            <div>
+              <div class="small">Priority</div>
+              <div id="detailPriority">—</div>
+            </div>
+            <div>
+              <div class="small">Status</div>
+              <div id="detailStatus">—</div>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="small">Assigned To</div>
+            <div id="detailAssignee">—</div>
+          </div>
+          <div class="meta">
+            <div class="small">Created</div>
+            <div id="detailCreated">—</div>
+          </div>
+          <div class="meta">
+            <div class="small">Updated</div>
+            <div id="detailUpdated">—</div>
+          </div>
+          <div class="meta">
+            <div class="small">Client Email</div>
+            <div id="detailEmail">—</div>
+          </div>
+          <div class="meta">
+            <div class="small">Attachments</div>
+            <div id="detailAttachments" class="attachments"></div>
+          </div>
+          <button class="resolve-btn" id="resolveBtn">Mark Resolved</button>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="{{ url_for('static', filename='js/admin_ticket_view.js') }}"></script>
+</body>
+</html>

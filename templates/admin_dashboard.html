@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QueryNest — Ticket Admin Dashboard</title>
+  <link rel="stylesheet" href="../static/css/admin_dashboard.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">QN</div>
+        <div>
+          <h1>QueryNest</h1>
+          <p class="small">Ticket Admin Dashboard</p>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+        <div class="small">Admin — Vishnu</div>
+        <button class="primary" onclick="createTicket()">New Ticket</button>
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="small" style="margin-bottom:12px">Navigation</div>
+        <nav class="nav">
+          <a class="active">🏠 Dashboard</a>
+          <a onclick="refreshTable()">🎫 All Tickets</a>
+          <a href="http://localhost:8501/" target="_blank">📊 Visualization</a>
+          <a>📂 Categories</a>
+          <a>⚙️ Settings</a>
+          <a>🧑‍💻 Team</a>
+        </nav>
+
+        <div style="margin-top:20px">
+          <div class="small">Quick Filters</div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <button class="filter-btn" onclick="setFilter('open')">Open</button>
+            <button class="filter-btn" onclick="setFilter('in progress')">In Progress</button>
+            <button class="filter-btn" onclick="setFilter('resolved')">Resolved</button>
+            <button class="filter-btn" onclick="setFilter('closed')">Closed</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main">
+        <!-- Stats -->
+        <div class="stats">
+          <div class="stat"><h3>Open Tickets</h3><p id="countOpen">0</p></div>
+          <div class="stat"><h3>In Progress</h3><p id="countProgress">0</p></div>
+          <div class="stat"><h3>Resolved (30d)</h3><p id="countResolved">0</p></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <div class="search"><input id="q" placeholder="Search tickets, user, id..." oninput="refreshTable()" /></div>
+          <select id="filterStatus" onchange="refreshTable()">
+            <option value="">All Status</option>
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+            <option>Closed</option>
+          </select>
+          <button onclick="refreshTable()">Refresh</button>
+        </div>
+
+        <!-- Tickets Table -->
+        <div class="table">
+          <table id="ticketsTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Requester</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Updated</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="ticketsBody">
+              <!-- Tickets loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../static/js/admin_dashboard.js"></script>
+</body>
+</html>
