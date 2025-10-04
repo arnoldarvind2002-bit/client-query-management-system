@@ -8,7 +8,7 @@ This project provides a platform for clients to raise support tickets and for ad
 ## 🔑 Features  
 - :ticket: Client ticket submission (with file upload)  
 - :man_technologist: Role-based login system (Admin & Client)  
-- :bar_chart: Admin dashboard with **data visualizations** (Plotly)  
+- :bar_chart: Admin dashboard with **data visualizations**   
 - :date: Track ticket status: Open / Closed  
 - :chart_with_upwards_trend: Query trend analysis (resolution time, user stats, open vs closed ratio)  
 - :art: Responsive admin UI with custom CSS  
@@ -42,11 +42,11 @@ venv\Scripts\activate         # On Windows
 DB_HOST = "localhost"
 DB_USER = "root"
 DB_PASSWORD = "your_password"
-DB_NAME = "helpdesk_db"
+DB_NAME = "arvindsiva"
 
 python .py
 python -m streamlit run admin_visualization.py
-
+```
 ---
 
 
@@ -82,7 +82,7 @@ python -m streamlit run admin_visualization.py
 5. Open a Pull Request  
 
 ### 📜 License
-This project is licensed under the **MIT License** – free to use and modify.  
+This project is licensed under the **GPL 3.0 License** – free to use and modify.  
 
 ### 👨‍💻 Author
 **Arvind Siva**  
